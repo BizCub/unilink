@@ -1,0 +1,9 @@
+{
+    "text.autoconfig.unilink.title": "UniLink Settings",
+    "text.autoconfig.unilink.option.linksList": "Links",
+    "text.autoconfig.unilink.option.recreateDirs": "Recreate Dirs",
+    "text.autoconfig.unilink.option.recreateDirs.@Tooltip": "Create directories required by the game",
+    "text.autoconfig.unilink.option.Pair": "Source and Destination",
+    "text.autoconfig.unilink.option.Pair.from": "From",
+    "text.autoconfig.unilink.option.Pair.to": "To"
+}
