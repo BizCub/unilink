@@ -8,6 +8,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.minecraft.world.InteractionResult;
 
+import java.util.Collections;
 import java.util.List;
 
 @Config(name = Main.MOD_ID)
@@ -15,7 +16,7 @@ public class Configs implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip
     public boolean recreateDirs = true;
-    public List<Pair> linksList = List.of();
+    public List<Pair> linksList = Collections.emptyList();
 
     public static void init() {
         AutoConfig.register(Configs.class, GsonConfigSerializer::new);

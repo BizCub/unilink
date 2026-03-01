@@ -8,11 +8,10 @@ loom.silentMojangMappingsLicense()
 
 stonecutter {
     constants.match(mod.loader, "fabric", "forge", "neoforge")
-    constants["is_cloth_config_available"] = isClothConfigAvailable
 
     swaps["mod_id"] = "\"${prop("mod.id")}\";"
 
-    replacements.string(scp >= "1.21.11" && !isForge, "auto_config") {
+    replacements.string(scp >= "1.21.11", "auto_config") {
         replace("AutoConfig", "AutoConfigClient")
     }
 }
@@ -53,7 +52,7 @@ publishMods {
     modrinth {
         projectId = mod.modrinth
         accessToken = tokenDir("modrinth")
-        if (isClothConfigAvailable) optional("cloth-config")
+        requires("cloth-config")
         if (isFabric) optional("modmenu")
         minecraftVersionRange {
             start = mod.pub_start
@@ -64,7 +63,7 @@ publishMods {
     curseforge {
         projectId = mod.curseforge
         accessToken = tokenDir("curseforge")
-        if (isClothConfigAvailable) optional("cloth-config")
+        requires("cloth-config")
         if (isFabric) optional("modmenu")
         minecraftVersionRange {
             start = mod.pub_start
@@ -80,8 +79,6 @@ publishMods {
 }
 
 loom {
-    if (isForge) forge.mixinConfigs("${mod.mixin}.mixins.json")
-
     runConfigs.getByName("client") { runDir = "../../run/client" }
     runConfigs.getByName("server") { runDir = "../../run/server" }
 

@@ -6,13 +6,14 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static final String MOD_ID = /*$ mod_id*/ "unilink";
 
     public static ArrayList<String> oldLinksList = new ArrayList<>();
-    public static List<String> recreatedDirectories = List.of("saves", "resourcepacks");
+    public static List<String> recreatedDirectories = Arrays.asList("saves", "resourcepacks");
 
     public static void init() {
         Configs.init();

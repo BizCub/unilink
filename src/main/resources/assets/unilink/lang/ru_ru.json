@@ -1,0 +1,9 @@
+{
+    "text.autoconfig.unilink.title": "Настройки UniLink",
+    "text.autoconfig.unilink.option.linksList": "Ссылки",
+    "text.autoconfig.unilink.option.recreateDirs": "Пересоздавать каталоги",
+    "text.autoconfig.unilink.option.recreateDirs.@Tooltip": "Создать каталоги, необходимые для игры",
+    "text.autoconfig.unilink.option.Pair": "Источник и назначение",
+    "text.autoconfig.unilink.option.Pair.from": "Откуда",
+    "text.autoconfig.unilink.option.Pair.to": "Куда"
+}

@@ -17,7 +17,6 @@ val Project.scv get() = sc.current.version
 val Project.isFabric: Boolean get() = mod.loader == "fabric"
 val Project.isForge: Boolean get() = mod.loader == "forge"
 val Project.isNeoForge: Boolean get() = mod.loader == "neoforge"
-val Project.isClothConfigAvailable: Boolean get() = !(isForge && scp > "1.21.3")
 
 fun ProcessResources.properties(files: Iterable<String>, vararg properties: Pair<String, Any>) {
     for ((name, value) in properties) inputs.property(name, value)
