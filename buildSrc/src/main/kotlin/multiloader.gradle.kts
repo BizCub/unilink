@@ -34,11 +34,11 @@ if (isNeoForge) {
 
 publishMods {
     modrinth {
-        //if (isClothConfigAvailable) optional("cloth-config")
-        //if (isFabric) optional("modmenu")
+        if (isClothConfigAvailable) requires("cloth-config")
+        if (isFabric) optional("modmenu")
     }
     curseforge {
-        //if (isClothConfigAvailable) optional("cloth-config")
-        //if (isFabric) optional("modmenu")
+        if (isClothConfigAvailable) requires("cloth-config")
+        if (isFabric) optional("modmenu")
     }
 }
