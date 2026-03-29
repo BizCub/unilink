@@ -31,12 +31,12 @@ project.extensions.configure<MultiLoader>("multiloader") {
 
     project.extensions.configure<ModPublishExtension>("publishMods") {
         modrinth {
-//            if (isClothConfigAvailable) optional("cloth-config")
-//            if (isFabric) optional("modmenu")
+            if (isClothConfigAvailable) optional("cloth-config")
+            if (isFabric) optional("modmenu")
         }
         curseforge {
-//            if (isClothConfigAvailable) optional("cloth-config")
-//            if (isFabric) optional("modmenu")
+            if (isClothConfigAvailable) optional("cloth-config")
+            if (isFabric) optional("modmenu")
         }
     }
 }
