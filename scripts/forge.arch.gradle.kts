@@ -8,22 +8,22 @@ apply(from = ml.scriptPath)
 multiloader {
     loom.silentMojangMappingsLicense()
 
+    java.toolchain.languageVersion.set(JavaLanguageVersion.of(mod.javaNumber))
+
     repositories {
-        for (rep in reps) maven(rep.name)
+        for (rep in reps) maven(rep.repository)
     }
 
     dependencies {
-        minecraft("com.mojang:minecraft:${mod.mcSpecified}")
+        minecraft("com.mojang:minecraft:${mod.mc}")
         mappings(loom.officialMojangMappings())
         "forge"("net.minecraftforge:forge:${getProp("forge")}")
-        for (dep in deps) dep.impl(dep.name)
+        for (dep in deps) dep.configuration(dep.dependency)
     }
 
     loom {
         runConfigs.getByName("client") { runDir = clientRunPath }
         runConfigs.getByName("server") { runDir = serverRunPath }
-
-        forge.mixinConfigs("${mod.mixin}.mixins.json")
 
         decompilers {
             get("vineflower").apply {
