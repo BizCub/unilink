@@ -24,7 +24,7 @@ stonecutter {
             var suffix = if (it == "forge" && sc.eval(version, "<26.1")) ".arch" else ""
             version("$version-$it", version).buildscript = "scripts/$it$suffix.gradle.kts"
         }
-        match("26.1", fb, nf)
+        match("26.1.1", fb, nf)
         match("1.21.3", fb, nf)
         match("1.21.1", nf)
         match("1.20.4", fr)
