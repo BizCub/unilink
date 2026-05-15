@@ -25,6 +25,9 @@ multiloader {
         runConfigs.getByName("client") { runDir = clientRunPath }
         runConfigs.getByName("server") { runDir = serverRunPath }
 
+        val awFile = file(ctForgeArchPath)
+        if (awFile.exists()) accessWidenerPath = awFile
+
         decompilers {
             get("vineflower").apply {
                 options.put("mark-corresponding-synthetics", "1")
@@ -40,5 +43,9 @@ multiloader {
 
     tasks.named<Copy>("buildAndCollect") {
         from(builtFile)
+    }
+
+    tasks.named("validateAccessWidener") {
+        dependsOn("processResources")
     }
 }
