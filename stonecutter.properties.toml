@@ -1,23 +1,30 @@
-# Fabric versions see: https://fabricmc.net/develop
-# Forge versions see: https://files.minecraftforge.net
-# NeoForge versions see: https://neoforged.net
-# Extra dependencies see: https://linkie.shedaniel.dev/dependencies
+### Mod properties
+mod.name="UniLink"
+mod.id="unilink"
+mod.version="1.0"
+mod.description="Allows you to use resources from other directories"
 
+### Publishing
+mod.modrinth="Ia6QwDLJ"
+mod.curseforge="1474788"
+mod.github="unilink"
+
+### Subprojects
 ["26.1.2"]
-pub_end="latest"
+pub-end="latest"
 
 ["1.21.3"]
-pub_end="1.21.11"
+pub-end="1.21.11"
 
 ["1.20.4"]
-pub_start="1.19"
-pub_end="1.21.1"
+pub-start="1.19"
+pub-end="1.21.1"
 
 ["1.18.2"]
-pub_start="1.18"
+pub-start="1.18"
 
 ["1.16.5"]
-pub_end="1.21.1"
+pub-end="1.21.1"
 
 ["1.16.5-forge"]
-pub_end="1.16.5"
+pub-end="1.16.5"
