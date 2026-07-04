@@ -5,9 +5,6 @@ plugins {
 }
 
 multiloader {
-    setMREnvironment(mrEnvs.clientOnly)
-    setCFEnvironment(cfEnvs.client)
-
     val isClothConfigAvailable = !(isForge && scp > "1.21.3")
 
     sc.replacements {
@@ -23,6 +20,9 @@ multiloader {
         isPublishDepEnabled = isClothConfigAvailable,
         publishProjectId = "cloth-config"
     )
+
+    setMREnvironment(mrEnvs.clientOnly)
+    setCFEnvironment(cfEnvs.client)
 
     if (isFabric) {
         addDependency(
