@@ -17,6 +17,5 @@ multiloader {
     match("26.1.2", fb, fg, nf)
     match("1.21.3", fb, fg, nf)
     match("1.21.1",         nf)
-    match("1.20.4",     fg)
     match("1.20.1", fb, fg)
 }
