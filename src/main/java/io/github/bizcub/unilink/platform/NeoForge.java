@@ -12,9 +12,7 @@ public class NeoForge {
     public NeoForge() {
         Main.init();
 
-        ModLoadingContext.get().registerExtensionPoint(
-                IConfigScreenFactory.class, () -> (container, screen) ->
-                        PlatformInit.getScreen(screen)
-        );
+        ModLoadingContext.get().registerExtensionPoint(IConfigScreenFactory.class, () ->
+            (container, parent) -> ConfigHelper.getScreen(parent));
     }
 }*///?}

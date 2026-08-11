@@ -1,9 +1,10 @@
 //? fabric {
-package com.bizcub.unilink.platform;
+package io.github.bizcub.unilink.platform;
 
-import com.bizcub.unilink.Main;
+import io.github.bizcub.unilink.Main;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
+import io.github.bizcub.unilink.config.ConfigHelper;
 import net.fabricmc.api.ClientModInitializer;
 
 public class Fabric implements ClientModInitializer {
@@ -17,7 +18,7 @@ public class Fabric implements ClientModInitializer {
 
         @Override
         public ConfigScreenFactory<?> getModConfigScreenFactory() {
-            return PlatformInit::getScreen;
+            return ConfigHelper::getScreen;
         }
     }
 }//?}

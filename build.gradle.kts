@@ -1,18 +1,25 @@
 plugins {
-    id("me.modmuss50.mod-publish-plugin")
-    id("dev.kikugie.fletching-table")
-    id("com.bizcub.multiloader")
+    id("io.github.bizcub.multiloader")
 }
 
 multiloader {
-    val isClothConfigAvailable = !(isForge && scp > "1.21.3")
-
     sc.replacements {
         string(scp >= "1.21.11" && !isForge, "auto_config") {
             replace("AutoConfig", "AutoConfigClient")
         }
     }
 
+    setMREnvironment(mrEnvs.clientOnly)
+    setCFEnvironment(cfEnvs.client)
+
+    versionRange("26.1.2", to = "latest")
+    versionRange("1.21.3", to = "1.21.11")
+    versionRange("1.20.1", to = "1.21.1")
+
+    addDependency(
+        dependency = "io.github.bizcub:simple-config-lib:1.0-${mod.loader}+${mod.mc}"
+    )
+    val isClothConfigAvailable = !(isForge && scp > "1.21.3")
     addDependency(
         dependency = "me.shedaniel.cloth:cloth-config-${mod.loader}:${getDep("cloth-config").split("+").first()}",
         configuration = if (isClothConfigAvailable) "implementation" else "compileOnly",
@@ -21,12 +28,12 @@ multiloader {
         publishProjectId = "cloth-config"
     )
 
-    setMREnvironment(mrEnvs.clientOnly)
-    setCFEnvironment(cfEnvs.client)
-
     if (isFabric) {
         addDependency(
             dependency = "net.fabricmc:fabric-loader:${getDep("fabric")}"
+        )
+        addDependency(
+            dependency = "net.fabricmc.fabric-api:fabric-api:${getDep("fabric-api")}"
         )
         addDependency(
             dependency = "com.terraformersmc:modmenu:${getDep("modmenu")}",

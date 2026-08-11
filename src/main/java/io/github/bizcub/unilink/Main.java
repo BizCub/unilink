@@ -1,6 +1,6 @@
-package com.bizcub.unilink;
+package io.github.bizcub.unilink;
 
-import com.bizcub.unilink.config.Configs;
+import io.github.bizcub.unilink.config.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,14 +16,25 @@ public class Main {
     public static List<String> recreatedDirectories = Arrays.asList("saves", "resourcepacks");
 
     public static void init() {
-        Configs.init();
+        if (ConfigHelper.isSimpleConfigLoaded()) {
+            Config.set(SimpleConfig.getInstance().get());
+        } else if (ConfigHelper.isClothConfigLoaded()) {
+            ClothConfig.init();
+            Config.set(ClothConfig.getInstance());
+        }
+
         initLinks();
+    }
+
+    public static void onSave() {
+        Main.initLinks();
+        if (Config.get().recreateDirs()) Main.recreateDirs();
     }
 
     public static void initLinks() {
         if (!oldLinksList.isEmpty()) {
             ArrayList<String> linksStringList = new ArrayList<>();
-            Configs.getInstance().linksList.forEach(link -> linksStringList.add(link.to));
+            Config.get().linksList().forEach(link -> linksStringList.add(link.to));
 
             for (String link : oldLinksList) {
                 if (!linksStringList.contains(link)) {
@@ -32,7 +43,7 @@ public class Main {
             }
         }
 
-        Configs.getInstance().linksList.forEach(pair -> {
+        Config.get().linksList().forEach(pair -> {
             try {
                 File originalPath = new File(pair.from);
                 File symbolicLinkPath = new File(pair.to);
@@ -51,7 +62,7 @@ public class Main {
 
     public static void saveTempFile() {
         if (!oldLinksList.isEmpty()) oldLinksList.clear();
-        Configs.getInstance().linksList.forEach(link -> oldLinksList.add(link.to));
+        Config.get().linksList().forEach(link -> oldLinksList.add(link.to));
     }
 
     public static void deleteFolder(File folder) {

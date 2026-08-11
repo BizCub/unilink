@@ -5,5 +5,12 @@
     "text.autoconfig.unilink.option.recreateDirs.@Tooltip": "Create directories required by the game",
     "text.autoconfig.unilink.option.Pair": "Source and Destination",
     "text.autoconfig.unilink.option.Pair.from": "From",
-    "text.autoconfig.unilink.option.Pair.to": "To"
+    "text.autoconfig.unilink.option.Pair.to": "To",
+
+    "text.unilink.group.general": "UniLink Settings",
+    "text.unilink.option.recreateDirs": "Recreate Dirs",
+    "text.unilink.option.recreateDirs.tooltip": "Create directories required by the game",
+    "text.unilink.option.linksList": "Links",
+    "text.unilink.option.linksList.from": "From",
+    "text.unilink.option.linksList.to": "To"
 }

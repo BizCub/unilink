@@ -5,5 +5,12 @@
     "text.autoconfig.unilink.option.recreateDirs.@Tooltip": "Создать каталоги, необходимые для игры",
     "text.autoconfig.unilink.option.Pair": "Источник и назначение",
     "text.autoconfig.unilink.option.Pair.from": "Откуда",
-    "text.autoconfig.unilink.option.Pair.to": "Куда"
+    "text.autoconfig.unilink.option.Pair.to": "Куда",
+
+    "text.unilink.group.general": "Настройки UniLink",
+    "text.unilink.option.linksList": "Ссылки",
+    "text.unilink.option.recreateDirs": "Пересоздавать каталоги",
+    "text.unilink.option.recreateDirs.tooltip": "Создать каталоги, необходимые для игры",
+    "text.unilink.option.linksList.from": "Откуда",
+    "text.unilink.option.linksList.to": "Куда"
 }
