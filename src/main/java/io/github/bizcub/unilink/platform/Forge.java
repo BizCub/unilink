@@ -1,8 +1,8 @@
 //? forge {
-/*package com.bizcub.unilink.platform;
+/*package io.github.bizcub.unilink.platform;
 
-import com.bizcub.unilink.Main;
-import me.shedaniel.autoconfig.AutoConfig;
+import io.github.bizcub.unilink.Main;
+import io.github.bizcub.unilink.config.ConfigHelper;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;

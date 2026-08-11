@@ -1,7 +1,8 @@
 //? neoforge {
-/*package com.bizcub.unilink.platform;
+/*package io.github.bizcub.unilink.platform;
 
-import com.bizcub.unilink.Main;
+import io.github.bizcub.unilink.Main;
+import io.github.bizcub.unilink.config.ConfigHelper;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
