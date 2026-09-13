@@ -1,12 +1,13 @@
 package io.github.bizcub.unilink.config;
 
 import io.github.bizcub.simpleConfigLib.autoconfig.ConfigHolder;
+import io.github.bizcub.simpleConfigLib.autoconfig.ConfigSide;
 import io.github.bizcub.simpleConfigLib.autoconfig.annotation.*;
 import io.github.bizcub.unilink.Main;
 
 import java.util.List;
 
-@AutoConfig(name = Main.MOD_ID, fileName = Main.MOD_ID + "_scl", translate = true)
+@AutoConfig(name = Main.MOD_ID, fileName = Main.MOD_ID + "_scl", side = ConfigSide.CLIENT, translate = true)
 public class SimpleConfig implements Config {
 
     public static ConfigHolder<SimpleConfig> getInstance() {
