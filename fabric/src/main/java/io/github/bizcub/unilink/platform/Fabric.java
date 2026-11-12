@@ -1,4 +1,3 @@
-//? fabric {
 package io.github.bizcub.unilink.platform;
 
 import io.github.bizcub.unilink.Main;
@@ -21,4 +20,4 @@ public class Fabric implements ClientModInitializer {
             return ConfigHelper::getScreen;
         }
     }
-}//?}
+}

@@ -1,6 +1,6 @@
 package io.github.bizcub.unilink;
 
-import io.github.bizcub.unilink.config.*;
+import io.github.bizcub.unilink.config.SimpleConfig;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,31 +10,26 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-    public static final String MOD_ID = /*$ mod_id*/ "unilink";
+    public static final String MOD_ID = "unilink";
 
     public static ArrayList<String> oldLinksList = new ArrayList<>();
     public static List<String> recreatedDirectories = Arrays.asList("saves", "resourcepacks");
 
     public static void init() {
-        if (ConfigHelper.isSimpleConfigLoaded()) {
-            Config.set(SimpleConfig.getInstance().get());
-        } else if (ConfigHelper.isClothConfigLoaded()) {
-            ClothConfig.init();
-            Config.set(ClothConfig.getInstance());
-        }
+        SimpleConfig.getInstance().onSave(config -> Main.onSave());
 
         initLinks();
     }
 
     public static void onSave() {
         Main.initLinks();
-        if (Config.get().recreateDirs()) Main.recreateDirs();
+        if (SimpleConfig.getInstance().get().recreateDirs) Main.recreateDirs();
     }
 
     public static void initLinks() {
         if (!oldLinksList.isEmpty()) {
             ArrayList<String> linksStringList = new ArrayList<>();
-            Config.get().linksList().forEach(link -> linksStringList.add(link.to));
+            SimpleConfig.getInstance().get().linksList.forEach(link -> linksStringList.add(link.to));
 
             for (String link : oldLinksList) {
                 if (!linksStringList.contains(link)) {
@@ -43,7 +38,7 @@ public class Main {
             }
         }
 
-        Config.get().linksList().forEach(pair -> {
+        SimpleConfig.getInstance().get().linksList.forEach(pair -> {
             try {
                 File originalPath = new File(pair.from);
                 File symbolicLinkPath = new File(pair.to);
@@ -62,7 +57,7 @@ public class Main {
 
     public static void saveTempFile() {
         if (!oldLinksList.isEmpty()) oldLinksList.clear();
-        Config.get().linksList().forEach(link -> oldLinksList.add(link.to));
+        SimpleConfig.getInstance().get().linksList.forEach(link -> oldLinksList.add(link.to));
     }
 
     public static void deleteFolder(File folder) {
